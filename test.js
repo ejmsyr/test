@@ -1,4 +1,4 @@
-const apiBase = "http://192.168.1.44/test_api.php"; // Change to your PHP file's location
+const apiBase = "local"; // Change to your PHP file's location
 
 // Fetch and display players
 async function fetchPlayers() {
