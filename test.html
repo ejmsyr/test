@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Read and Write</title>
+</head>
+<body>
+    <h1>Test Database Interaction</h1>
+
+    <!-- Form to write data -->
+    <h2>Add Player</h2>
+    <form id="write-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="score">Score:</label>
+        <input type="number" id="score" required>
+        <button type="submit">Add Player</button>
+    </form>
+
+    <h2>Players</h2>
+    <ul id="player-list"></ul>
+
+    <script src="test.js"></script>
+</body>
+</html>
