@@ -1,4 +1,4 @@
-const apiBase = "local"; // Change to your PHP file's location
+const apiBase = "https://test-inky-seven-13.vercel.app/api"; // Change to your PHP file's location
 
 // Fetch and display players
 async function fetchPlayers() {
