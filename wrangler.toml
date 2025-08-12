@@ -1,0 +1,21 @@
+name = "tacta"
+main = "src/worker.js"
+compatibility_date = "2025-08-10"
+
+# Durable Object binding for game rooms
+[durable_objects]
+bindings = [
+  { name = "GAME_ROOM", class_name = "GameRoom" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["GameRoom"]
+
+# Example D1 binding. A D1 database can be used to persist finished
+# games, leaderboards, or user profiles. This binding is defined here for
+# completeness but is not used by the Worker code. Create the database
+# via `wrangler d1 create tacta_db` and bind it as shown.
+[[d1_databases]]
+binding = "DB"
+database_name = "tacta_db"
