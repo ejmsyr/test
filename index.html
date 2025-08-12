@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Read and Write</title>
-</head>
-<body>
-    <h1>Test Database Interaction</h1>
-
-    <!-- Form to write data -->
-    <h2>Add Player</h2>
-    <form id="write-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-        <label for="score">Score:</label>
-        <input type="number" id="score" required>
-        <button type="submit">Add Player</button>
-    </form>
-
-    <h2>Players</h2>
-    <ul id="player-list"></ul>
-
-    <script src="test.js"></script>
-    <script src="read.js"></script>
-    <script src="write.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tacta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+      }
+      #lobby {
+        padding: 2rem;
+        max-width: 600px;
+        margin: auto;
+      }
+      #game {
+        padding: 1rem;
+      }
+      #board {
+        display: grid;
+        /* 11×11 grid gives enough space for the starting card and surrounding placements */
+        grid-template-columns: repeat(11, 1fr);
+        grid-auto-rows: 80px;
+        gap: 4px;
+        margin-top: 1rem;
+      }
+      .cell {
+        position: relative;
+        border: 1px solid #ccc;
+        background: white;
+        height: 80px;
+      }
+      .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 2px solid #444;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        text-align: center;
+        cursor: grab;
+        user-select: none;
+      }
+      #hand {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 1rem;
+      }
+      .hand-card {
+        width: 60px;
+        height: 80px;
+        border: 1px solid #888;
+        border-radius: 4px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lobby">
+      <h1>Tacta</h1>
+      <p>
+        Enter a game room ID to join or create a new one. Share the ID with
+        another player so they can join your game.
+      </p>
+      <input type="text" id="roomId" placeholder="Room ID" />
+      <button id="joinBtn">Join Game</button>
+    </div>
+    <div id="game" style="display: none">
+      <div id="playerInfo"></div>
+      <div id="board"></div>
+      <h3>Your Hand</h3>
+      <div id="hand"></div>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
 </html>
